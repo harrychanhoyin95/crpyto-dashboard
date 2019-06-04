@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-import drawerReducer from "./drawerReducer";
+import authReducer from "./authReducer";
 
 export default combineReducers({
-	drawer: drawerReducer
+	auth: authReducer
 });

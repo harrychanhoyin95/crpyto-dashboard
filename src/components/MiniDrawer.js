@@ -24,6 +24,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import Portfolio from "./Portfolio";
 import PriceChart from "./PriceChart";
 import Settings from "./Settings";
+import GoogleAuth from "./GoogleAuth";
 
 const drawerWidth = 240;
 
@@ -92,12 +93,15 @@ const useStyles = makeStyles(theme => ({
 		color: 'initial',
 		textDecoration: 'none',
 	},
+	googleAuth: {
+		padding: 0,
+	},
 }));
 
 function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = React.useState(false);
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -184,6 +188,9 @@ function MiniDrawer() {
 					</List>
 				</Link>
         <Divider />
+				<List>
+					<GoogleAuth className={classes.googleAuth} />
+				</List>
 				<Link to="/settings" className={classes.link}>
 					<List>
 						{['Settings'].map((text) => (

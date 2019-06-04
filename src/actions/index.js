@@ -1,11 +1,11 @@
-export const openDrawer = () => {
+export const signIn = () => {
 	return {
-		type: "OPEN_DRAWER"
+		type: 'SIGN_IN'
 	};
 };
 
-export const closeDrawer = () => {
+export const signOut = () => {
 	return {
-		type: "CLOSE_DRAWER"
+		type: 'SIGN_OUT'
 	};
 };
