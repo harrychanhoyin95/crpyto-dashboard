@@ -44,28 +44,26 @@ class GoogleAuth extends React.Component {
 			return null
 		} else if (this.props.isSignedIn) {
 			return (
-				<List onClick={this.onClickSignOut}>
-					<ListItem button key="sign-out">
-						<ListItemIcon><PersonIcon /></ListItemIcon>
-						<ListItemText primary="Sign Out" />
-					</ListItem>
-				</List>
+				<ListItem onClick={this.onClickSignOut} button key="sign-out">
+					<ListItemIcon><PersonIcon /></ListItemIcon>
+					<ListItemText primary="Sign Out" />
+				</ListItem>
 			)
 		} else {
 			return (
-				<List onClick={this.onClickSignIn}>
-					<ListItem button key="sign-in">
-						<ListItemIcon><PersonIcon /></ListItemIcon>
-						<ListItemText primary="Sign In" />
-					</ListItem>
-				</List>
+				<ListItem onClick={this.onClickSignIn} button key="sign-in">
+					<ListItemIcon><PersonIcon /></ListItemIcon>
+					<ListItemText primary="Sign In" />
+				</ListItem>
 			)
 		}
 	}
 
 	render() {
 		return (
-			<div>{this.renderButton()}</div>
+			<List>
+			  {this.renderButton()}
+		  </List>
 		)
 	}
 }

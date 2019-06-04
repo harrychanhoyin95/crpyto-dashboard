@@ -188,9 +188,9 @@ function MiniDrawer() {
 					</List>
 				</Link>
         <Divider />
-				<List>
+				<Link className={classes.link}>
 					<GoogleAuth className={classes.googleAuth} />
-				</List>
+				</Link>
 				<Link to="/settings" className={classes.link}>
 					<List>
 						{['Settings'].map((text) => (
