@@ -188,7 +188,7 @@ function MiniDrawer() {
 					</List>
 				</Link>
         <Divider />
-				<Link className={classes.link}>
+				<Link to="#" className={classes.link}>
 					<GoogleAuth className={classes.googleAuth} />
 				</Link>
 				<Link to="/settings" className={classes.link}>

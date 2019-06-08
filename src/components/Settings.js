@@ -1,8 +1,11 @@
 import React from "react";
+import Chart from './Chart';
 
 const Settings = () => {
 	return (
-		<main className="content">Settings</main>
+		<main className="content">
+			<Chart />
+		</main>
 	);
 }
 
