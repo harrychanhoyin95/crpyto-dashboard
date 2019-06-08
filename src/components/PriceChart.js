@@ -1,8 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import styled from 'styled-components';
 
-import { getCurrency, selectCurrecny } from "../actions";
+import { getCurrency } from "../actions";
 import Chart from './Chart';
+
+const CenterProgress = styled.div`
+	text-align: center;
+`;
+
 
 class PriceChart extends React.Component {
 	componentDidMount() {
@@ -11,7 +18,11 @@ class PriceChart extends React.Component {
 
 	render() {
 		if (this.props.priceChart.currency === null) {
-			return <div>Loading...</div>
+			return (
+				<CenterProgress>
+					<CircularProgress />
+				</CenterProgress>
+			)
 		} else {
 			return (
 			<main className="content">
@@ -31,5 +42,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
 	mapStateToProps,
-	{ getCurrency, selectCurrecny }
+	{ getCurrency }
 )(PriceChart);

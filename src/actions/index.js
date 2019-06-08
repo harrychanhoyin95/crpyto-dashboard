@@ -21,12 +21,6 @@ export const getCurrency = () => async dispatch => {
 	dispatch({ type: 'FETCH_CURRENCY', payload: response.data })
 };
 
-export const selectCurrecny = () => {
-	return {
-		type: "SELECT_CURRENCY"
-	};
-};
-
 export const showTooltip = () => {
 	return {
 		type: 'SHOW_TOOLTIP'
