@@ -3,13 +3,9 @@ import { XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, LineMarkS
 import '../../node_modules/react-vis/dist/style.css';
 import { connect } from 'react-redux';
 
-import { showTooltip, closeTooltip, getCurrency, getDatapoint } from "../actions";
+import { showTooltip, closeTooltip, getDatapoint } from "../actions";
 
 class Chart extends React.Component {
-	componentDidMount() {
-		this.props.getCurrency()
-	};
-
 	data = (this.props.currencies).map(currency => {
 		return {x: new Date(currency.time_period_start), y: currency.price_close}
 	})
@@ -39,8 +35,8 @@ class Chart extends React.Component {
 				<VerticalGridLines />
 				<LineMarkSeries 
 					data={this.data}
-					lineStyle={{stroke: '#7CB5EC'}}
-					markStyle={{stroke: '#0A63A4', fill: '#0A63A4'}}
+					lineStyle={{stroke: '#737373'}}
+					markStyle={{stroke: '#444444', fill: '#444444'}}
 					onValueMouseOver={(datapoint) => {
 						this.props.showTooltip();
 						this.props.getDatapoint(datapoint);
@@ -51,7 +47,7 @@ class Chart extends React.Component {
 				  <Hint value={this.tooltipPosition()}>
 						<div style={{background: '#e2e2e2', padding: '0 10px'}}>
 							<p style={{marginTop: '1.8em', color: 'black', fontWeight: 'bold', padding: '5px 0'}}>
-							  HK${this.props.datapoint.y} <br />
+							  US${this.props.datapoint.y} <br />
 								<span style={{opacity: '0.7', fontSize: '0.8em', fontWeight: 'normal'}}>
 									{this.parseDate(this.props.datapoint.x)} <br />
 									{(this.props.datapoint.x).getHours()}:00:00 GMT+8
@@ -76,5 +72,5 @@ const mapStatetoProps = state => {
 
 export default connect (
 	mapStatetoProps,
-	{ showTooltip, closeTooltip, getCurrency, getDatapoint }
+	{ showTooltip, closeTooltip, getDatapoint }
 )(Chart);

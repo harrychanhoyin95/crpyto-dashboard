@@ -1,39 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { Link, Switch, Route } from "react-router-dom";
 import styled from 'styled-components';
 
-import { getCurrency } from "../actions";
-import Chart from './Chart';
+import Bitcoin from './cryptocurrencies/Bitcoin';
+import Ethereum from './cryptocurrencies/Ethereum';
+import BitcoinCash from './cryptocurrencies/BitcoinCash';
 
-const CenterProgress = styled.div`
-	text-align: center;
-`;
-
-
-class PriceChart extends React.Component {
-	componentDidMount() {
-		this.props.getCurrency();
-	}
-
-	render() {
-		if (this.props.priceChart.currency === null) {
-			return (
-				<CenterProgress>
-					<CircularProgress />
-				</CenterProgress>
-			)
-		} else {
-			return (
-			<main className="content">
-				<Chart />
-				<select>
-					<option>BTC</option>
-				</select>
-			</main>
-			);
-		}
-	}
+const PriceChart = () => {
+	return (
+		<main className="content">
+		  <div>
+				<Link to="/price-chart/bitcoin">Bitcoin</Link>
+				<Link to="/price-chart/ethereum">ETH</Link>
+				<Link to="/price-chart/bitcoin-cash">BTH</Link>
+			</div>
+			<Switch>
+				<Route path="/" exact />
+				<Route path="/price-chart/bitcoin" component={Bitcoin} />
+				<Route path="/price-chart/ethereum" component={Ethereum} />
+				<Route path="/price-chart/bitcoin-cash" component={BitcoinCash} />
+			</Switch>
+		</main>
+	);
 }
 
 const mapStateToProps = (state) => {
@@ -42,5 +31,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
 	mapStateToProps,
-	{ getCurrency }
+	null
 )(PriceChart);

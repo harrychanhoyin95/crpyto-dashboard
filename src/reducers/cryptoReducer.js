@@ -8,7 +8,11 @@ const INITIAL_STATE = {
 
 export default ( state = INITIAL_STATE, action ) => {
 	switch (action.type) {
-		case "FETCH_CURRENCY":
+		case "FETCH_BITCOIN":
+			return { ...state, currency: action.payload };
+		case "FETCH_ETHEREUM":
+			return { ...state, currency: action.payload };
+		case "FETCH_BITCOIN_CASH":
 			return { ...state, currency: action.payload };
 		case 'SHOW_TOOLTIP':
 			return { ...state, showTooltip: true };
