@@ -7,6 +7,7 @@ import Chart from '../Chart';
 import { getBitcoinCash } from "../../actions";
 
 const CenterProgress = styled.div`
+  margin-top: 100px;
 	text-align: center;
 `;
 
