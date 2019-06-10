@@ -11,12 +11,95 @@ const CenterProgress = styled.div`
 	text-align: center;
 `;
 
+const Wrapper = styled.div`
+  margin-top: 20px;
+`;
+
+const PriceWrapper = styled.div`
+	display: flex;
+	font-size: 1.2em;
+	font-weight: bold;
+`;
+
+const ImageWrapper = styled.div`
+  margin-right: 5px;
+`;
+
+const StyledP = styled.p`
+  margin: 0;
+`;
+
+const CurrentPrice = styled.span`
+  margin-right: 10px;
+`;
+
+const RedText = styled.span`
+	color: #F03800;
+	font-size: 0.9em;
+`;
+
+const GreenText = styled.span`
+	color: #5CBB26;
+	font-size: 0.9em;
+`;
+
 class Bitcoin extends React.Component {
 	componentDidMount() {
 		this.props.getBitcoin()
 	}
 
+	renderPriceAndPercentage(price) {
+		const openPrice = price[price.length - 1].price_close;
+		const closePrice = price[0].price_close
+    const percentage = Math.round(((closePrice - openPrice) / openPrice) * 10000) /100;
+		
+		if (percentage > 0) {
+			return (
+				<div>
+					<StyledP>
+						Bitcoin Price(BTC)
+					</StyledP>
+					<StyledP>		
+						<CurrentPrice>US${this.props.priceChart.currency[0].price_close}</CurrentPrice>
+						<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" class="price-arrow">
+						  <path fill="#5CBB26" fill-rule="evenodd" d="M6 0L0 11h12L6 0z"></path>
+						</svg>
+						<GreenText>{percentage}</GreenText>
+					</StyledP>
+				</div>
+			)
+		} else if (percentage < 0) {
+			return (
+				<div>
+					<StyledP>
+					  Bitcoin Price(BTC)
+					</StyledP>
+					<StyledP>		
+					  <CurrentPrice>US${this.props.priceChart.currency[0].price_close}</CurrentPrice>
+						<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" className="price-arrow">
+							<path fill="#F03800" fillRule="evenodd" d="M6 11l6-11H0z" />
+						</svg>
+						<RedText>{percentage}</RedText>
+					</StyledP>
+				</div>
+			)
+		} else {
+			return (
+			  <div>
+					<StyledP>
+					  Bitcoin Price(BTC)
+					</StyledP>
+					<StyledP>		
+					  <CurrentPrice>US${this.props.priceChart.currency[0].price_close}</CurrentPrice>
+						{percentage}%
+					</StyledP>
+			  </div>
+			)
+		}
+	}
+
 	render() {
+		console.log(this.props)
 		if (this.props.priceChart.currency === null) {
 			return (
 				<CenterProgress>
@@ -25,7 +108,15 @@ class Bitcoin extends React.Component {
 			)
 		} else {
 		  return (
-			  <Chart />
+				<Wrapper>
+					<PriceWrapper>
+						<ImageWrapper>
+							<img src="https://img.icons8.com/color/48/000000/bitcoin.png" alt="bitcoin" />
+						</ImageWrapper>
+						{this.renderPriceAndPercentage(this.props.priceChart.currency)}
+					</PriceWrapper>
+					<Chart />
+				</Wrapper>
 			);
 		}
 	}

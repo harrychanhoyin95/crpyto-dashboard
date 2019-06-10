@@ -1,9 +1,15 @@
 import React from "react";
-import { XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, LineMarkSeries, Hint } from 'react-vis';
+import { FlexibleWidthXYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, LineMarkSeries, Hint } from 'react-vis';
 import '../../node_modules/react-vis/dist/style.css';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { showTooltip, closeTooltip, getDatapoint } from "../actions";
+
+const StyledXYPlot = styled(FlexibleWidthXYPlot)`
+	margin: 0 auto;
+	padding: 30px 0;
+`;
 
 class Chart extends React.Component {
 	data = (this.props.currencies).map(currency => {
@@ -26,9 +32,9 @@ class Chart extends React.Component {
 
 	render() {
 		return (
-			<XYPlot
-			  xType="time"
-				width={500}
+			<StyledXYPlot
+				xType="time"
+				margin={{left: 50}}
 				height={300}
 			>
 				<HorizontalGridLines />
@@ -57,7 +63,7 @@ class Chart extends React.Component {
 				  </Hint>) : null}
 				<XAxis tickTotal={4} />
 				<YAxis tickTotal={6} />
-			</XYPlot>
+			</StyledXYPlot>
 		);
 	}
 }

@@ -10,6 +10,7 @@ import BitcoinCash from './cryptocurrencies/BitcoinCash';
 const GridWrapper = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 5px;
 
 	@media (min-width: 768px) {
 		width: 70%;
@@ -19,19 +20,13 @@ const GridWrapper = styled.div`
 
 const StyledLink = styled(Link)`
 	display: grid;
+	grid-gap: 10px;
 	justify-items: center;
 	border: 1px solid #737373;
+	border-radius: 10px;
 	color: #000000;
 	text-align: center;
 	text-decoration: none;
-
-	&:first-child {
-		border-right: none
-	}
-
-	&:last-child {
-		border-left: none
-	}
 
 	&:hover {
 		background-color: #c5c5c5;
@@ -40,21 +35,22 @@ const StyledLink = styled(Link)`
 	@media (min-width: 768px) {
 		display: block;
 		justify-items: initial;
+		padding: 10px 0;
 	}
 `;
 
 const CryptoIcon = styled.img`
-  margin-top: 10px;
-	margin-bottom: 10px;
-	
+	margin-top: 10px;	
+
   @media (min-width: 768px) {
 		vertical-align: middle;
-		margin-top: 10px;
+		margin-top: 0;
 		margin-right: 10px;
 	}
 `;
 
 const CryptoText = styled.span`
+  padding-bottom: 10px;
   font-weight: bold;
   text-decoration: none;
 `;
