@@ -4,7 +4,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import styled from 'styled-components';
 
 import Chart from '../Chart';
-import { getBitcoin } from "../../actions";
+import { getBitcoin, getExchangeRate } from "../../actions";
 
 const CenterProgress = styled.div`
   margin-top: 100px;
@@ -45,7 +45,20 @@ const GreenText = styled.span`
 
 class Bitcoin extends React.Component {
 	componentDidMount() {
-		this.props.getBitcoin()
+		this.props.getBitcoin();
+		this.props.getExchangeRate();
+	}
+
+	renderHKD() {
+		const exchangeRate = this.props.exchangeData.exchangeRate.USD_HKD;
+
+		if (this.props.settings.defaultCurrency === 'USD') {
+			return 	<CurrentPrice>US${this.props.priceChart.currency[0].price_close}</CurrentPrice>
+		}
+
+		if (this.props.settings.defaultCurrency === 'HKD') {
+			return 	<CurrentPrice>HK${Math.round((this.props.priceChart.currency[0].price_close) * exchangeRate * 100) / 100 } </CurrentPrice>
+		}
 	}
 
 	renderPriceAndPercentage(price) {
@@ -60,9 +73,9 @@ class Bitcoin extends React.Component {
 						Bitcoin Price(BTC)
 					</StyledP>
 					<StyledP>		
-						<CurrentPrice>US${this.props.priceChart.currency[0].price_close}</CurrentPrice>
-						<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" class="price-arrow">
-						  <path fill="#5CBB26" fill-rule="evenodd" d="M6 0L0 11h12L6 0z"></path>
+						{this.renderHKD()}
+						<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" className="price-arrow">
+						  <path fill="#5CBB26" fillRule="evenodd" d="M6 0L0 11h12L6 0z"></path>
 						</svg>
 						<GreenText>{percentage}%</GreenText>
 					</StyledP>
@@ -75,7 +88,7 @@ class Bitcoin extends React.Component {
 					  Bitcoin Price(BTC)
 					</StyledP>
 					<StyledP>		
-					  <CurrentPrice>US${this.props.priceChart.currency[0].price_close}</CurrentPrice>
+					  {this.renderHKD()}
 						<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" className="price-arrow">
 							<path fill="#F03800" fillRule="evenodd" d="M6 11l6-11H0z" />
 						</svg>
@@ -90,8 +103,8 @@ class Bitcoin extends React.Component {
 					  Bitcoin Price(BTC)
 					</StyledP>
 					<StyledP>		
-					  <CurrentPrice>US${this.props.priceChart.currency[0].price_close}</CurrentPrice>
-						{percentage}%
+					  {this.renderHKD()}
+ 						{percentage}%
 					</StyledP>
 			  </div>
 			)
@@ -99,7 +112,6 @@ class Bitcoin extends React.Component {
 	}
 
 	render() {
-		console.log(this.props)
 		if (this.props.priceChart.currency === null) {
 			return (
 				<CenterProgress>
@@ -123,10 +135,14 @@ class Bitcoin extends React.Component {
 };
 
 const mapStateToProps = state => {
-	return { priceChart: state.priceChart }
+	return { 
+		priceChart: state.priceChart,
+		settings: state.settings,
+		exchangeData: state.exchangeData
+	};
 }
 
 export default connect (
   mapStateToProps,
-	{ getBitcoin }
+	{ getBitcoin, getExchangeRate }
 )(Bitcoin);

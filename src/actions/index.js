@@ -1,4 +1,5 @@
 import crpyto from '../components/apis/crypto';
+import exchangeRate from '../components/apis/exchangeRate';
 
 export const signIn = () => {
 	return {
@@ -55,5 +56,24 @@ export const getDatapoint = (datapoint) => {
 	return {
 		type: "GET_DATAPOINT",
 		payload: datapoint
+	};
+};
+
+export const getExchangeRate = () => async dispatch => {
+	const apiKey = '2a0cfbcaf9a179566ac5';
+	const response = await exchangeRate.get(`/api/v7/convert?q=USD_HKD,HKD_USD&compact=ultra&apiKey=${apiKey}`);
+
+	dispatch({ type: 'GET_EXCHANGE_RATE', payload: response.data })
+}
+
+export const setUSD = () => {
+	return {
+		type: "SET_USD"
+	};
+};
+
+export const setHKD = () => {
+	return {
+		type: "SET_HKD"
 	};
 };
