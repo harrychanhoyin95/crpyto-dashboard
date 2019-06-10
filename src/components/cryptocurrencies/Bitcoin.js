@@ -64,7 +64,7 @@ class Bitcoin extends React.Component {
 						<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" class="price-arrow">
 						  <path fill="#5CBB26" fill-rule="evenodd" d="M6 0L0 11h12L6 0z"></path>
 						</svg>
-						<GreenText>{percentage}</GreenText>
+						<GreenText>{percentage}%</GreenText>
 					</StyledP>
 				</div>
 			)
@@ -79,7 +79,7 @@ class Bitcoin extends React.Component {
 						<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" className="price-arrow">
 							<path fill="#F03800" fillRule="evenodd" d="M6 11l6-11H0z" />
 						</svg>
-						<RedText>{percentage}</RedText>
+						<RedText>{percentage}%</RedText>
 					</StyledP>
 				</div>
 			)
