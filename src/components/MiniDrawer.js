@@ -17,11 +17,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from "@material-ui/icons/Home";
 import PriceChartIcon from "@material-ui/icons/ShowChart";
-import PortfolioIcon from "@material-ui/icons/PieChart"
+import TableIcon from "@material-ui/icons/TableChart"
 import SettingsIcon from "@material-ui/icons/Settings";
 
 import { Link, Route, Switch } from "react-router-dom";
-import Portfolio from "./Portfolio";
+import Portfolio from "./Table";
 import PriceChart from "./PriceChart";
 import Settings from "./Settings";
 import GoogleAuth from "./GoogleAuth";
@@ -177,11 +177,11 @@ function MiniDrawer() {
 						))}
 					</List>
 				</Link>
-				<Link to="/portfolio" className={classes.link}>
+				<Link to="/table" className={classes.link}>
 					<List>
-						{['Portfolio'].map((text) => (
+						{['Table'].map((text) => (
 							<ListItem button key={text}>
-								<ListItemIcon><PortfolioIcon /></ListItemIcon>
+								<ListItemIcon><TableIcon /></ListItemIcon>
 								<ListItemText primary={text} />
 							</ListItem>
 						))}
@@ -207,7 +207,7 @@ function MiniDrawer() {
 				<Switch>
 					<Route path="/" exact />
 					<Route path="/price-chart" component={PriceChart} />
-					<Route path="/portfolio" component={Portfolio} />
+					<Route path="/table" component={Portfolio} />
 					<Route path="/settings" component={Settings} />
 				</Switch>
       </main>
