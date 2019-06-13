@@ -167,21 +167,21 @@ function MiniDrawer() {
 						))}
 					</List>
 				</Link>
-				<Link to="/price-chart" className={classes.link}>
-					<List>
-						{['Price'].map((text) => (
-							<ListItem button key={text}>
-								<ListItemIcon><PriceChartIcon /></ListItemIcon>
-								<ListItemText primary={text} />
-							</ListItem>
-						))}
-					</List>
-				</Link>
 				<Link to="/table" className={classes.link}>
 					<List>
 						{['Table'].map((text) => (
 							<ListItem button key={text}>
 								<ListItemIcon><TableIcon /></ListItemIcon>
+								<ListItemText primary={text} />
+							</ListItem>
+						))}
+					</List>
+				</Link>
+				<Link to="/price-chart" className={classes.link}>
+					<List>
+						{['Price'].map((text) => (
+							<ListItem button key={text}>
+								<ListItemIcon><PriceChartIcon /></ListItemIcon>
 								<ListItemText primary={text} />
 							</ListItem>
 						))}

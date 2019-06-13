@@ -6,6 +6,9 @@ import numeral from 'numeral';
 import { getTableArray } from '../actions';
 
 const TableWrapper = styled.table`
+	border: 2px solid rgb(240,240,240);
+	border-spacing: 0;
+	border-radius: 5px;
   width: 100%;
   white-space: nowrap;
 `;
@@ -20,8 +23,9 @@ const TableLabelRow = styled.tr`
 `;
 
 const TableLabel = styled.th`
-	font-weight: normal;
+	font-weight: bold;
 	background-color: rgb(240, 240, 240);
+	padding: 12px;	
 
 	&:first-child {
 		text-align: center;
@@ -33,10 +37,22 @@ const TableLabel = styled.th`
 
 	&:nth-child(n+3) {
 		text-align: right;
+	}
+
+	@media only screen and (max-width: 767px) {
+		&:nth-child(1),
+		&:nth-child(4),
+		&:nth-child(5),
+		&:nth-child(6),
+		&:nth-child(7) {
+			display: none;
+		}
 	}
 `;
 
 const TableData = styled.td`
+  padding: 12px;	
+
 	&:first-child {
 		text-align: center;
 	}
@@ -47,8 +63,28 @@ const TableData = styled.td`
 
 	&:nth-child(n+3) {
 		text-align: right;
-}
+	}
+	
+	@media only screen and (max-width: 767px) {
+		padding: 12px 0;
+
+		&:nth-child(1),
+		&:nth-child(4),
+		&:nth-child(5),
+		&:nth-child(6),
+		&:nth-child(7) {
+			display: none;
+		}
+	}
 `;
+
+const GreenText = styled.span`
+  color: green;
+`
+
+const RedText = styled.span`
+  color: red;
+`
 
 class Table extends React.Component {
 	componentDidMount() {
@@ -64,7 +100,15 @@ class Table extends React.Component {
 	}
 
 	renderPercentage(number) {
-		return numeral(number).format('0.00%')
+		var newNumber = numeral(number).format('0.00%');
+
+		if (number > 0) {
+			return <GreenText>{newNumber}</GreenText>
+		} else if (number < 0) {
+			return <RedText>{newNumber}</RedText>
+		} else {
+			return {newNumber}
+		}
 	}
 
 	renderTable() {
