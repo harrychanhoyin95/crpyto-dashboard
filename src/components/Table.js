@@ -2,8 +2,14 @@ import React from "react";
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import numeral from 'numeral';
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { getTableArray } from '../actions';
+
+const CenterProgress = styled.div`
+  margin-top: 100px;
+	text-align: center;
+`;
 
 const TableWrapper = styled.table`
 	border: 2px solid rgb(240,240,240);
@@ -151,7 +157,11 @@ class Table extends React.Component {
 
 	render() {
 		if (this.props.tableData === null) {
-			return null
+			return (
+				<CenterProgress>
+					<CircularProgress />
+				</CenterProgress>
+			)
 		} else {
 			return (
 				<div className="content">
