@@ -43,6 +43,13 @@ const GreenText = styled.span`
 	font-size: 0.9em;
 `;
 
+const PeriodText = styled.div`
+  font-size: 0.8em;
+  font-weight: normal;
+	margin: 0 0 0 auto;
+	align-self: flex-end;
+`;
+
 class BitcoinCash extends React.Component {
 	componentDidMount() {
 		this.props.getBitcoinCash();
@@ -127,6 +134,7 @@ class BitcoinCash extends React.Component {
 							<img src="https://i.imgur.com/MJ4hg8G.png" alt="bitcoin_cash" />
 						</ImageWrapper>
 						{this.renderPriceAndPercentage(this.props.priceChart.currency)}
+						<PeriodText>Last 24h</PeriodText>
 					</PriceWrapper>
 					<Chart />
 				</Wrapper>

@@ -82,7 +82,7 @@ const PriceChart = (props) => {
 		)
 	} else {
 		return (
-			<main className="content">
+			<div className="content">
 				<GridWrapper>
 					<StyledLink to="/price-chart/bitcoin" >
 						<CryptoIcon src="https://img.icons8.com/color/48/000000/bitcoin.png" />
@@ -103,7 +103,7 @@ const PriceChart = (props) => {
 					<Route path="/price-chart/ethereum" component={Ethereum} />
 					<Route path="/price-chart/bitcoin-cash" component={BitcoinCash} />
 				</Switch>
-			</main>
+			</div>
 		);
 	}
 }

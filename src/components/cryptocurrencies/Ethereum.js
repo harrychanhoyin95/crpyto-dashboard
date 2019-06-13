@@ -43,6 +43,13 @@ const GreenText = styled.span`
 	font-size: 0.9em;
 `;
 
+const PeriodText = styled.div`
+  font-size: 0.8em;
+  font-weight: normal;
+	margin: 0 0 0 auto;
+	align-self: flex-end;
+`;
+
 class Ethereum extends React.Component {
 	componentDidMount() {
 		this.props.getEthereum();
@@ -127,6 +134,7 @@ class Ethereum extends React.Component {
 							<img src="https://img.icons8.com/color/48/000000/ethereum.png" alt="ethereum" />
 						</ImageWrapper>
 						{this.renderPriceAndPercentage(this.props.priceChart.currency)}
+						<PeriodText>Last 24h</PeriodText>
 					</PriceWrapper>
 					<Chart />
 				</Wrapper>

@@ -21,7 +21,7 @@ import TableIcon from "@material-ui/icons/TableChart"
 import SettingsIcon from "@material-ui/icons/Settings";
 
 import { Link, Route, Switch } from "react-router-dom";
-import Portfolio from "./Table";
+import Table from "./Table";
 import PriceChart from "./PriceChart";
 import Settings from "./Settings";
 import GoogleAuth from "./GoogleAuth";
@@ -207,7 +207,7 @@ function MiniDrawer() {
 				<Switch>
 					<Route path="/" exact />
 					<Route path="/price-chart" component={PriceChart} />
-					<Route path="/table" component={Portfolio} />
+					<Route path="/table" component={Table} />
 					<Route path="/settings" component={Settings} />
 				</Switch>
       </main>
