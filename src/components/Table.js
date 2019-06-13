@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import numeral from 'numeral';
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-import { getTableArray } from '../actions';
+import { getTableArray, getExchangeRate } from '../actions';
 
 const CenterProgress = styled.div`
   margin-top: 100px;
@@ -46,6 +46,8 @@ const TableLabel = styled.th`
 	}
 
 	@media only screen and (max-width: 767px) {
+		padding: 12px 6px;
+		
 		&:nth-child(1),
 		&:nth-child(4),
 		&:nth-child(5),
@@ -94,15 +96,29 @@ const RedText = styled.span`
 
 class Table extends React.Component {
 	componentDidMount() {
-		this.props.getTableArray()
+		this.props.getExchangeRate();
+		this.props.getTableArray();
+		console.log(this.props)
 	}
 
 	renderWholeNumber(number) {
-	  return numeral(number).format('$0,0.00')
+		if (this.props.exchangeData.exchangeRate === null) {
+			return null
+		} else if (this.props.settings.defaultCurrency === 'HKD') {
+			return numeral(number * this.props.exchangeData.exchangeRate.USD_HKD).format('$0,0.00')
+		} else {
+			return numeral(number).format('$0,0.00')
+		}
 	}
 
 	renderBigNumber(number) {
-	  return numeral(number).format('$0.00a')
+		if (this.props.exchangeData.exchangeRate === null) {
+			return null
+		} else if (this.props.settings.defaultCurrency === 'HKD') {
+			return numeral(number * this.props.exchangeData.exchangeRate.USD_HKD).format('$0.00a')
+		} else {
+			return numeral(number).format('$0.00a')
+		}
 	}
 
 	renderPercentage(number) {
@@ -118,7 +134,7 @@ class Table extends React.Component {
 	}
 
 	renderTable() {
-		console.log(this.props.tableData.data)
+		console.log(this.props.exchangeData.exchangeRate)
 		return (
 			<TableWrapper>
 				<TableHead>
@@ -173,10 +189,14 @@ class Table extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { tableData: state.table.tableData}
+  return { 
+		tableData: state.table.tableData,
+		exchangeData: state.exchangeData,
+		settings: state.settings
+	}
 }
 
 export default connect(
 	mapStateToProps,
-	{ getTableArray }
+	{ getTableArray, getExchangeRate }
 )(Table);
