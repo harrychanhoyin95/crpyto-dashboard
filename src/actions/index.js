@@ -1,6 +1,7 @@
 import crpyto from '../components/apis/crypto';
 import exchangeRate from '../components/apis/exchangeRate';
 import cryptoTable from '../components/apis/cryptoTable';
+import news from '../components/apis/news';
 
 export const signIn = () => {
 	return {
@@ -82,4 +83,9 @@ export const setHKD = () => {
 export const getTableArray = () => async dispatch => {
 	const response = await cryptoTable.get('/assets?limit=20');
 	dispatch({ type: 'GET_TABLE_ARRAY', payload: response.data })
+};
+
+export const getNews = () => async dispatch => {
+	const response = await news.get(`/api/v1/public/news`);
+	dispatch({ type: 'GET_NEWS', payload: response.data })
 };

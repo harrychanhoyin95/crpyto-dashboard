@@ -21,6 +21,7 @@ import TableIcon from "@material-ui/icons/TableChart"
 import SettingsIcon from "@material-ui/icons/Settings";
 
 import { Link, Route, Switch } from "react-router-dom";
+import Home from './Home';
 import Table from "./Table";
 import PriceChart from "./PriceChart";
 import Settings from "./Settings";
@@ -179,7 +180,7 @@ function MiniDrawer() {
 				</Link>
 				<Link to="/price-chart" className={classes.link}>
 					<List>
-						{['Price'].map((text) => (
+						{['Price Chart'].map((text) => (
 							<ListItem button key={text}>
 								<ListItemIcon><PriceChartIcon /></ListItemIcon>
 								<ListItemText primary={text} />
@@ -205,7 +206,7 @@ function MiniDrawer() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
 				<Switch>
-					<Route path="/" exact />
+					<Route path="/" exact component={Home} />
 					<Route path="/price-chart" component={PriceChart} />
 					<Route path="/table" component={Table} />
 					<Route path="/settings" component={Settings} />
