@@ -73,14 +73,14 @@ const CryptoText = styled.span`
 `;
 
 const PriceChart = (props) => {
-	if (props.auth.isSignedIn === null || props.auth.isSignedIn === false) {
-		return (
-			<ErrorP>
-				<StyledErrorIcon />
-				Please login in your Google account to access the price chart
-			</ErrorP>
-		)
-	} else {
+	// if (props.auth.isSignedIn === null || props.auth.isSignedIn === false) {
+	// 	return (
+	// 		<ErrorP>
+	// 			<StyledErrorIcon />
+	// 			Please login in your Google account to access the price chart
+	// 		</ErrorP>
+	// 	)
+	// } else {
 		return (
 			<div className="content">
 				<GridWrapper>
@@ -105,7 +105,7 @@ const PriceChart = (props) => {
 				</Switch>
 			</div>
 		);
-	}
+	// }
 }
 
 const mapStateToProps = (state) => {
