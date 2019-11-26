@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/crpyto-dashboard/precache-manifest.dd7020767c9851f999d2cdd5c21dea77.js"
+  "/crpyto-dashboard/precache-manifest.eec32811a2fb2309152e6461a91a0df3.js"
 );
 
 self.addEventListener('message', (event) => {
