@@ -1,6 +1,6 @@
 {
-  "homepage": "http://harrychanhoyin95.github.io/crpyto-dashboard",
-  "name": "crpyto-dash",
+  "homepage": "http://harrychanhoyin95.github.io/crypto-dashboard",
+  "name": "crypto-dash",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
