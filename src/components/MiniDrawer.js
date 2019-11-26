@@ -19,6 +19,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import PriceChartIcon from "@material-ui/icons/ShowChart";
 import TableIcon from "@material-ui/icons/TableChart"
 import SettingsIcon from "@material-ui/icons/Settings";
+import PersonIcon from '@material-ui/icons/Person';
 
 import { Link, Route, Switch } from "react-router-dom";
 import Home from './Home';
@@ -190,7 +191,12 @@ function MiniDrawer() {
 				</Link>
         <Divider />
 				<Link to="/googleOAuth2" className={classes.link}>
-					<GoogleAuth className={classes.googleAuth} />
+          {['Login/Logout'].map((text) => (
+							<ListItem button key={text}>
+								<ListItemIcon><PersonIcon /></ListItemIcon>
+								<ListItemText primary={text} />
+							</ListItem>
+					))}
 				</Link>
 				<Link to="/settings" className={classes.link}>
 					<List>
