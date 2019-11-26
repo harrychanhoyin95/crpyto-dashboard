@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/crypto-dashboard/static/js/main.e19ded0d.chunk.js",
-    "main.js.map": "/crypto-dashboard/static/js/main.e19ded0d.chunk.js.map",
-    "runtime~main.js": "/crypto-dashboard/static/js/runtime~main.b72b2319.js",
-    "runtime~main.js.map": "/crypto-dashboard/static/js/runtime~main.b72b2319.js.map",
-    "static/css/2.5a2f7233.chunk.css": "/crypto-dashboard/static/css/2.5a2f7233.chunk.css",
-    "static/js/2.1e07aa88.chunk.js": "/crypto-dashboard/static/js/2.1e07aa88.chunk.js",
-    "static/js/2.1e07aa88.chunk.js.map": "/crypto-dashboard/static/js/2.1e07aa88.chunk.js.map",
-    "index.html": "/crypto-dashboard/index.html",
-    "precache-manifest.22be650d830fc265048dc3ab94736607.js": "/crypto-dashboard/precache-manifest.22be650d830fc265048dc3ab94736607.js",
-    "service-worker.js": "/crypto-dashboard/service-worker.js",
-    "static/css/2.5a2f7233.chunk.css.map": "/crypto-dashboard/static/css/2.5a2f7233.chunk.css.map"
+    "main.js": "/crpyto-dashboard/static/js/main.e19ded0d.chunk.js",
+    "main.js.map": "/crpyto-dashboard/static/js/main.e19ded0d.chunk.js.map",
+    "runtime~main.js": "/crpyto-dashboard/static/js/runtime~main.9f0c316b.js",
+    "runtime~main.js.map": "/crpyto-dashboard/static/js/runtime~main.9f0c316b.js.map",
+    "static/css/2.5a2f7233.chunk.css": "/crpyto-dashboard/static/css/2.5a2f7233.chunk.css",
+    "static/js/2.d29c1adf.chunk.js": "/crpyto-dashboard/static/js/2.d29c1adf.chunk.js",
+    "static/js/2.d29c1adf.chunk.js.map": "/crpyto-dashboard/static/js/2.d29c1adf.chunk.js.map",
+    "index.html": "/crpyto-dashboard/index.html",
+    "precache-manifest.dd7020767c9851f999d2cdd5c21dea77.js": "/crpyto-dashboard/precache-manifest.dd7020767c9851f999d2cdd5c21dea77.js",
+    "service-worker.js": "/crpyto-dashboard/service-worker.js",
+    "static/css/2.5a2f7233.chunk.css.map": "/crpyto-dashboard/static/css/2.5a2f7233.chunk.css.map"
   }
 }
