@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.js": "/crypto-dashboard/static/js/main.6d2b8dbb.chunk.js",
+    "main.js.map": "/crypto-dashboard/static/js/main.6d2b8dbb.chunk.js.map",
+    "runtime~main.js": "/crypto-dashboard/static/js/runtime~main.b72b2319.js",
+    "runtime~main.js.map": "/crypto-dashboard/static/js/runtime~main.b72b2319.js.map",
+    "static/css/2.5a2f7233.chunk.css": "/crypto-dashboard/static/css/2.5a2f7233.chunk.css",
+    "static/js/2.1e07aa88.chunk.js": "/crypto-dashboard/static/js/2.1e07aa88.chunk.js",
+    "static/js/2.1e07aa88.chunk.js.map": "/crypto-dashboard/static/js/2.1e07aa88.chunk.js.map",
+    "index.html": "/crypto-dashboard/index.html",
+    "precache-manifest.7d4da7376e8a81261d30a967589bda38.js": "/crypto-dashboard/precache-manifest.7d4da7376e8a81261d30a967589bda38.js",
+    "service-worker.js": "/crypto-dashboard/service-worker.js",
+    "static/css/2.5a2f7233.chunk.css.map": "/crypto-dashboard/static/css/2.5a2f7233.chunk.css.map"
+  }
+}
