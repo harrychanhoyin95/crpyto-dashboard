@@ -190,7 +190,7 @@ function MiniDrawer() {
 					</List>
 				</Link>
         <Divider />
-				<Link to="/googleOAuth2" className={classes.link}>
+				{/* <Link to="/googleOAuth2" className={classes.link}>
           {['Login/Logout'].map((text) => (
 							<ListItem button key={text}>
 								<ListItemIcon><PersonIcon /></ListItemIcon>
@@ -198,7 +198,7 @@ function MiniDrawer() {
 								<ListItemText primary={text} />
 							</ListItem>
 					))}
-				</Link>
+				</Link> */}
 				<Link to="/settings" className={classes.link}>
 					<List>
 						{['Settings'].map((text) => (
