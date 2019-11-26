@@ -189,7 +189,7 @@ function MiniDrawer() {
 					</List>
 				</Link>
         <Divider />
-				<Link to="#" className={classes.link}>
+				<Link to="/googleOAuth2" className={classes.link}>
 					<GoogleAuth className={classes.googleAuth} />
 				</Link>
 				<Link to="/settings" className={classes.link}>
@@ -210,6 +210,7 @@ function MiniDrawer() {
 					<Route path="/price-chart" component={PriceChart} />
 					<Route path="/table" component={Table} />
 					<Route path="/settings" component={Settings} />
+          <Route path="/googleOAuth2" component={GoogleAuth} />
 				</Switch>
       </main>
     </div>
