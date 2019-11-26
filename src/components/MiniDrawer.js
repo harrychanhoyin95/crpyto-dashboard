@@ -194,6 +194,7 @@ function MiniDrawer() {
           {['Login/Logout'].map((text) => (
 							<ListItem button key={text}>
 								<ListItemIcon><PersonIcon /></ListItemIcon>
+                <GoogleAuth />
 								<ListItemText primary={text} />
 							</ListItem>
 					))}
