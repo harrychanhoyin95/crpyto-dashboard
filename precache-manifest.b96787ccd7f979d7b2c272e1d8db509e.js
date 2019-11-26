@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a71cf68e7e51ef445b843b6cc114d5a8",
+    "revision": "3ad093d2ec153e9e709c107826ddb6b6",
     "url": "/crpyto-dashboard/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/crpyto-dashboard/static/js/2.d07ae528.chunk.js"
   },
   {
-    "revision": "503d45261e6dae98fd3f",
-    "url": "/crpyto-dashboard/static/js/main.03724439.chunk.js"
+    "revision": "e3818cc3efd4716aec58",
+    "url": "/crpyto-dashboard/static/js/main.57507433.chunk.js"
   },
   {
     "revision": "a68da97f0088aab957eb",
